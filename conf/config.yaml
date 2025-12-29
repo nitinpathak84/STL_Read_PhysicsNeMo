@@ -1,0 +1,13 @@
+# Minimal config.yaml for Y-Junction
+defaults:
+  - _self_
+  - arch: fully_connected
+  - optimizer: adam
+  - scheduler: exponential_lr
+  - training: standard
+  - batch_size: standard
+
+# Override defaults
+training:
+  max_steps: 5000
+  rec_results_freq: 1000
