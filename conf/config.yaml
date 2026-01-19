@@ -5,10 +5,14 @@ defaults:
   - scheduler: exponential_lr
   - training: standard
 
-# --- REQUIRED SETTINGS ---
-# This was the missing key causing the crash.
-# "." means "save the neural network files in the current folder"
-network_dir: "."  
+# --- REQUIRED DIRECTORIES ---
 
-# Optional: Disable the profiler to keep the log clean
+# 1. Where to save the new model (REQUIRED)
+network_dir: "."
+
+# 2. Where to look for an existing model to resume (REQUIRED)
+# Leave as empty quotes "" to start training from scratch.
+initialization_network_dir: ""
+
+# --- OPTIONAL SETTINGS ---
 profiler: false
