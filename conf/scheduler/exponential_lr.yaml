@@ -1,2 +1,3 @@
 _target_: torch.optim.lr_scheduler.ExponentialLR
 gamma: 0.95
+# verbose: false  <-- REMOVED (Do not add this back)
