@@ -4,3 +4,11 @@ defaults:
   - optimizer: adam
   - scheduler: exponential_lr
   - training: standard
+
+# --- REQUIRED SETTINGS ---
+# This was the missing key causing the crash.
+# "." means "save the neural network files in the current folder"
+network_dir: "."  
+
+# Optional: Disable the profiler to keep the log clean
+profiler: false
