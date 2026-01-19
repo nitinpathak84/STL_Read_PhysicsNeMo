@@ -1,0 +1,7 @@
+_target_: physicsnemo.sym.models.fully_connected.FullyConnectedArch
+layer_size: 512
+nr_layers: 6
+skip_connections: false
+activation_fn: 'silu'
+adaptive_activations: false
+weight_norm: true
