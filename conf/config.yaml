@@ -5,16 +5,22 @@ defaults:
   - scheduler: exponential_lr
   - training: standard
 
-# --- DIRECTORIES ---
+# --- 1. DIRECTORIES ---
 network_dir: "."
 initialization_network_dir: ""
 
-# --- OUTPUT & LOGGING ---
+# --- 2. LOGGING & OUTPUT ---
 save_filetypes: "vtk"
 summary_histograms: false
 summary_system_stats: false
+print_stats_freq: 100
 
-# --- STOPPING CRITERIA ---
+# --- 3. LOSS FUNCTION (This fixes your current error) ---
+loss:
+  _target_: physicsnemo.sym.loss.aggregator.Sum
+  weights: null
+
+# --- 4. STOPPING CRITERIA ---
 stop_criterion:
   metric: null
   min_delta: null
@@ -23,7 +29,7 @@ stop_criterion:
   freq: null
   strict: false
 
-# --- PERFORMANCE ---
+# --- 5. PERFORMANCE & EXTRAS ---
 profiler: false
 jit: true
 cuda_graphs: true
