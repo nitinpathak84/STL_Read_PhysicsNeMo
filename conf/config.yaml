@@ -15,7 +15,7 @@ summary_histograms: false
 summary_system_stats: false
 print_stats_freq: 100
 
-# --- 3. LOSS FUNCTION (This fixes your current error) ---
+# --- 3. LOSS FUNCTION ---
 loss:
   _target_: physicsnemo.sym.loss.aggregator.Sum
   weights: null
@@ -33,6 +33,7 @@ stop_criterion:
 profiler: false
 jit: true
 cuda_graphs: true
+cuda_graph_warmup: 20   # <--- THIS IS THE MISSING KEY CAUSING THE CRASH
 amp: false
 dummy_input: null
 run_mode: "train"
