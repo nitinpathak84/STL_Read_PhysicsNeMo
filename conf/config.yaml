@@ -32,8 +32,11 @@ stop_criterion:
 # --- 5. PERFORMANCE & EXTRAS ---
 profiler: false
 jit: true
+# DISABLED to fix 'Insufficient Driver' error
 cuda_graphs: false
-cuda_graph_warmup: 20   # <--- THIS IS THE MISSING KEY CAUSING THE CRASH
+# Kept to prevent 'missing key' error
+cuda_graph_warmup: 0
+
 amp: false
 dummy_input: null
 run_mode: "train"
