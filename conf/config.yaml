@@ -5,14 +5,29 @@ defaults:
   - scheduler: exponential_lr
   - training: standard
 
-# --- REQUIRED DIRECTORIES ---
+# --- CRITICAL DIRECTORIES ---
+network_dir: "."                 # Where to save the model
+initialization_network_dir: ""   # Empty = Start from scratch
 
-# 1. Where to save the new model (REQUIRED)
-network_dir: "."
+# --- OUTPUT & LOGGING (The likely crash causes) ---
+save_filetypes: "vtk"
+summary_histograms: false        # Don't log weight histograms
+summary_system_stats: false      # Don't log CPU/GPU usage
+print_stats_freq: 100            # Print progress every 100 steps
 
-# 2. Where to look for an existing model to resume (REQUIRED)
-# Leave as empty quotes "" to start training from scratch.
-initialization_network_dir: ""
+# --- STOPPING CRITERIA (Required block) ---
+stop_criterion:
+  metric: null
+  min_delta: null
+  patience: null
+  mode: "min"
+  freq: null
+  strict: false
 
-# --- OPTIONAL SETTINGS ---
+# --- PERFORMANCE & SYSTEM ---
 profiler: false
+jit: true                        # Just-In-Time compilation (faster)
+cuda_graphs: true                # CUDA Graphs (faster)
+amp: false                       # Mixed Precision (set false for stability)
+dummy_input: null                # Prevents "missing input" error
+run_mode: "train"                # Explicitly state we are training
